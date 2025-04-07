@@ -12,9 +12,11 @@ Route::get('/user', function (Request $request) {
 
 
 // api/v1
-Route::group(['prefix' => 'v1', 'namespcae' => 'App\Controller\Api\v1'], function() {
+Route::group(['prefix' => 'v1', ], function() {
     Route::apiResource('customer', CustomerController::class);
     Route::apiResource('invoice', InvoiceController::class);
 
+
+    Route::post('invoices/bulk', [InvoiceController::class, 'bulkStore']);
 });
 
