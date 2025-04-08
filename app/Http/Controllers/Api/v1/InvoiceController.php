@@ -60,6 +60,7 @@ class InvoiceController extends Controller
 
     public function bulkStore(BulkStoreInvoiceRequest $request){
         
+
         $bulk = collect($request->all())->map(function ($arr, $key){
             return Arr::except($arr, ['customerId', 'billedDate', 'paidDate']);
         });
